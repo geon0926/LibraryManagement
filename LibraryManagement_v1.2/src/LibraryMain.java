@@ -3,8 +3,8 @@ import java.util.*;
 /**
  * 도서 관리 시스템의 메인 클래스
  * <p>사용자 인터페이스(CLI)를 제공하며, DB 연결하여 권한에 따른 메뉴 출력 및 사용자 입력을 처리합니다.</p>
- * 시작 날짜 2026.5.13
- * @author Su Man Nam
+ * 시작 날짜 2026.5.18
+ * @author 김건한
  * @version 1.2
  */
 public class LibraryMain {
