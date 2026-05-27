@@ -45,8 +45,11 @@ public class LibraryManager {
 //        this.userList = repository.loadLogin(id, pw);
         User user = repository.loadUser(id, pw);
 
+
+
         if (user != null) {
-            this.currentUser = user; // 로그인 성공 시 현재 사용자 저장
+            this.currentUser = user;
+            // 로그인 성공 시 현재 사용자 저장
             return true;
         }
         return false;
@@ -87,7 +90,9 @@ public class LibraryManager {
      * @param id 삭제할 도서 ID
      * @return 삭제 성공 여부
      */
+
     public boolean deleteBook(int id) {
+        repository.deleteBook(id);
         return bookMap.remove(id) != null;
     }
 

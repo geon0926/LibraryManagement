@@ -54,7 +54,11 @@ public class LibraryMain {
             String pw = sc.nextLine();
 
             if (manager.login(id, pw)) return true;
-            System.out.println("[오류] 아이디 또는 비밀번호가 틀렸습니다.");
+            if (Character.isDigit(id.charAt(0))) {
+                System.out.println("다시 입력하세요");
+            }else{
+                System.out.println("[오류] 아이디 또는 비밀번호가 틀렸습니다.");
+            }
         }
     }
 
