@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.Console;
 
 /**
  * 도서 관리 시스템의 메인 클래스
@@ -51,14 +52,17 @@ public class LibraryMain {
             System.out.print("아이디: ");
             String id = sc.nextLine();
             System.out.print("비밀번호: ");
-            String pw = sc.nextLine();
+            String pw = "";
+
+            // 진짜 터미널이면 글자를 숨기고, 인텔리제이면 그냥 일반 입력받기
+            if (System.console() != null) {
+                pw = new String(System.console().readPassword()); // 글자 안 보임
+            } else {
+                pw = sc.nextLine(); // 인텔리제이용 (글자 보임)
+            }
 
             if (manager.login(id, pw)) return true;
-            if (Character.isDigit(id.charAt(0))) {
-                System.out.println("다시 입력하세요");
-            }else{
-                System.out.println("[오류] 아이디 또는 비밀번호가 틀렸습니다.");
-            }
+            System.out.println("[오류] 로그인 실패!");
         }
     }
 
